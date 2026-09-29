@@ -1,0 +1,20 @@
+name: CUDA Compile
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  cuda-build:
+    name: CUDA compile
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Build CUDA project
+        run: ./build-cuda.sh

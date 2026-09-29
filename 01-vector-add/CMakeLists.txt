@@ -1,0 +1,1 @@
+add_tutorial(vector_add vector_add.cu)
