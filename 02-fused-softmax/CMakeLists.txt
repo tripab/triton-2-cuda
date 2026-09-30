@@ -1,0 +1,1 @@
+add_tutorial(fused_softmax fused_softmax.cu)

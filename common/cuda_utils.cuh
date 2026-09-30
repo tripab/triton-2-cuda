@@ -25,6 +25,27 @@ __host__ __device__ constexpr T cdiv(T a, T b) {
     return (a + b - 1) / b;
 }
 
+// Smallest power of two >= n, same as triton.next_power_of_2.
+inline int next_pow2(int n) {
+    int p = 1;
+    while (p < n) {
+        p <<= 1;
+    }
+    return p;
+}
+
+// Number of SMs on the current device (queried once).
+inline int num_sms() {
+    static int count = [] {
+        int dev = 0, n = 0;
+        CUDA_CHECK(cudaGetDevice(&dev));
+        CUDA_CHECK(
+            cudaDeviceGetAttribute(&n, cudaDevAttrMultiProcessorCount, dev));
+        return n;
+    }();
+    return count;
+}
+
 // Prints the active device and returns false if no CUDA device is usable.
 inline bool print_device_info() {
     int count = 0;

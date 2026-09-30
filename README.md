@@ -29,7 +29,8 @@ Every tutorial binary accepts `--test-only` to skip the benchmark.
 
 ```
 common/
-  cuda_utils.cuh   CUDA_CHECK, cdiv, DeviceBuffer, device info
+  cuda_utils.cuh   CUDA_CHECK, cdiv, next_pow2, num_sms, DeviceBuffer, device info
+  reduce.cuh       warp/block reductions (tl.max, tl.sum)
   bench.cuh        benchmark(): the C++ counterpart of triton.testing.do_bench
 NN-name/
   CMakeLists.txt   add_tutorial(<target> <sources>)
@@ -44,6 +45,7 @@ To add a tutorial, create `NN-name/`, call `add_tutorial(...)` in its
 | # | Triton tutorial | CUDA version |
 |---|-----------------|--------------|
 | 01 | [Vector Addition](https://triton-lang.org/main/getting-started/tutorials/01-vector-add.html) | [`01-vector-add/vector_add.cu`](01-vector-add/vector_add.cu) |
+| 02 | [Fused Softmax](https://triton-lang.org/main/getting-started/tutorials/02-fused-softmax.html) | [`02-fused-softmax/fused_softmax.cu`](02-fused-softmax/fused_softmax.cu) |
 
 ## Profiling
 

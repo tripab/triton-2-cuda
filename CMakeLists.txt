@@ -39,3 +39,4 @@ endfunction()
 
 # One subdirectory per Triton tutorial.
 add_subdirectory(01-vector-add)
+add_subdirectory(02-fused-softmax)
